@@ -8,6 +8,7 @@ import { Input } from '../ui/input'
 import { Slider } from '../ui/slider'
 import { Card, CardContent } from '../ui/card'
 import { Label } from '../ui/label'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select'
 
 const PatternGenerator: FC = () => {
   const [config, setConfig] = useState<PatternConfig>({
@@ -36,8 +37,23 @@ const PatternGenerator: FC = () => {
       <SVGPreview svg={svg} />
 
       <div className="container mx-auto max-w-xl">
-        <Card className="bg-card/50">
+        <Card>
           <CardContent>
+            {/* Pattern Style */}
+            <Label htmlFor="patternStyle">Pattern Style</Label>
+            <Select
+              value={config.patternStyle}
+              onValueChange={(value) => updateConfig({ patternStyle: value as 'geo' | 'random' | 'grid' })}>
+              <SelectTrigger id="patternStyle">
+                <SelectValue placeholder="Select pattern style" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="geo">Geographic</SelectItem>
+                <SelectItem value="random">Random</SelectItem>
+                <SelectItem value="grid">Grid</SelectItem>
+              </SelectContent>
+            </Select>
+
             {/* Seed Input */}
             <Label htmlFor="seed">Seed</Label>
             <Input id="seed" value={config.seed} onChange={(e) => updateConfig({ seed: e.target.value })} />
