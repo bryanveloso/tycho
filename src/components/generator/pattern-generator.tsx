@@ -21,9 +21,7 @@ const PatternGenerator: FC = () => {
     density: 0.5,
     noiseScale: 0.1,
     patternStyle: 'geo',
-    shapeCollection: 'basic',
-    useVariableSize: true,
-    useVariableOpacity: true
+    shapeCollection: 'basic'
   })
 
   const { svg, exportSVG } = usePatternGenerator(config)

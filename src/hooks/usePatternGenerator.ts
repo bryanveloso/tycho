@@ -77,7 +77,7 @@ export function usePatternGenerator(config: PatternConfig) {
   }
 
   const generateSVG = (elements: PatternElement[], config: PatternConfig): string => {
-    const { shapeSize, backgroundColor, columns, rows, mainColor, useVariableSize, useVariableOpacity } = config
+    const { shapeSize, backgroundColor, columns, rows, mainColor } = config
 
     // Calculate SVG dimensions
     const svgWidth = columns * shapeSize * 1.5
@@ -91,22 +91,10 @@ export function usePatternGenerator(config: PatternConfig) {
     elements.forEach((element) => {
       const x = element.x * shapeSize * 1.5 + shapeSize
       const y = element.y * shapeSize * 1.5 + shapeSize
-
-      // Calculate size and opacity based on intensity
-      const sizeModifier = useVariableSize ? 0.6 + element.intensity * 0.8 : 1
-      const opacityModifier = useVariableOpacity ? 0.6 + element.intensity * 0.4 : 1
-
-      const size = shapeSize * sizeModifier
+      const size = shapeSize
 
       // Adjust color opacity
       let color = mainColor
-      if (useVariableOpacity) {
-        // Convert hex to rgba for opacity
-        const r = parseInt(mainColor.slice(1, 3), 16)
-        const g = parseInt(mainColor.slice(3, 5), 16)
-        const b = parseInt(mainColor.slice(5, 7), 16)
-        color = `rgba(${r}, ${g}, ${b}, ${opacityModifier})`
-      }
 
       // Get the shape renderer from the registry
       const shape = shapeRegistry.get(element.shape)

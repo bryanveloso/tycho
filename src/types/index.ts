@@ -26,8 +26,6 @@ export interface PatternConfig {
   noiseScale: number
   patternStyle: 'geo' | 'random' | 'grid'
   shapeCollection: string
-  useVariableSize: boolean
-  useVariableOpacity: boolean
 }
 
 export interface PatternElement {
