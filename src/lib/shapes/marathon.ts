@@ -21,6 +21,16 @@ const quadDots: ShapeDefinition = {
   }
 }
 
+const concentricDot: ShapeDefinition = {
+  id: 'concentricDot',
+  name: 'Concentric Dot',
+  category: 'custom',
+  render(x, y, size, color) {
+    const scale = size / 100
+    return `<path fill-rule="evenodd" clip-rule="evenodd" d="M${x + (38.00) * scale} ${y + (0.00) * scale}C${x + (38.00) * scale} ${y + (20.99) * scale} ${x + (20.99) * scale} ${y + (38.00) * scale} ${x + (0.00) * scale} ${y + (38.00) * scale}C${x + (-20.99) * scale} ${y + (38.00) * scale} ${x + (-38.00) * scale} ${y + (20.99) * scale} ${x + (-38.00) * scale} ${y + (0.00) * scale}C${x + (-38.00) * scale} ${y + (-20.99) * scale} ${x + (-20.99) * scale} ${y + (-38.00) * scale} ${x + (0.00) * scale} ${y + (-38.00) * scale}C${x + (20.99) * scale} ${y + (-38.00) * scale} ${x + (38.00) * scale} ${y + (-20.99) * scale} ${x + (38.00) * scale} ${y + (0.00) * scale}ZM${x + (50.00) * scale} ${y + (0.00) * scale}C${x + (50.00) * scale} ${y + (27.61) * scale} ${x + (27.61) * scale} ${y + (50.00) * scale} ${x + (0.00) * scale} ${y + (50.00) * scale}C${x + (-27.61) * scale} ${y + (50.00) * scale} ${x + (-50.00) * scale} ${y + (27.61) * scale} ${x + (-50.00) * scale} ${y + (0.00) * scale}C${x + (-50.00) * scale} ${y + (-27.61) * scale} ${x + (-27.61) * scale} ${y + (-50.00) * scale} ${x + (0.00) * scale} ${y + (-50.00) * scale}C${x + (27.61) * scale} ${y + (-50.00) * scale} ${x + (50.00) * scale} ${y + (-27.61) * scale} ${x + (50.00) * scale} ${y + (0.00) * scale}ZM${x + (0.00) * scale} ${y + (15.00) * scale}C${x + (8.28) * scale} ${y + (15.00) * scale} ${x + (15.00) * scale} ${y + (8.28) * scale} ${x + (15.00) * scale} ${y + (0.00) * scale}C${x + (15.00) * scale} ${y + (-8.28) * scale} ${x + (8.28) * scale} ${y + (-15.00) * scale} ${x + (0.00) * scale} ${y + (-15.00) * scale}C${x + (-8.28) * scale} ${y + (-15.00) * scale} ${x + (-15.00) * scale} ${y + (-8.28) * scale} ${x + (-15.00) * scale} ${y + (0.00) * scale}C${x + (-15.00) * scale} ${y + (8.28) * scale} ${x + (-8.28) * scale} ${y + (15.00) * scale} ${x + (0.00) * scale} ${y + (15.00) * scale}Z" fill="${color}"/>`;
+  }
+};
+
 export function registerMarathonShapes() {
-  shapeRegistry.register([singleDot, quadDots])
+  shapeRegistry.register([singleDot, quadDots, concentricDot])
 }

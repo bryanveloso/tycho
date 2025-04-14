@@ -13,7 +13,7 @@ const marathon: ShapeCollection = {
   id: 'marathon',
   name: 'Marathon',
   description: "Shapes inspired by Marathon's assets.",
-  shapes: ['singleDot', 'quadDots']
+  shapes: ['concentricDot', 'singleDot', 'quadDots']
 }
 
 export function registerDefaultCollections() {
