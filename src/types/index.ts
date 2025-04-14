@@ -6,7 +6,7 @@ export interface ShapeDefinition {
   tags?: string[]
 }
 
-export type ShapeCategory = 'basic'
+export type ShapeCategory = 'basic' | 'marathon' | 'custom'
 
 export interface ShapeCollection {
   id: string
@@ -26,8 +26,6 @@ export interface PatternConfig {
   noiseScale: number
   patternStyle: 'geo' | 'random' | 'grid'
   shapeCollection: string
-  useVariableSize: boolean
-  useVariableOpacity: boolean
 }
 
 export interface PatternElement {

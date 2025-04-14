@@ -21,9 +21,7 @@ const PatternGenerator: FC = () => {
     density: 0.5,
     noiseScale: 0.1,
     patternStyle: 'geo',
-    shapeCollection: 'basic',
-    useVariableSize: true,
-    useVariableOpacity: true
+    shapeCollection: 'basic'
   })
 
   const { svg, exportSVG } = usePatternGenerator(config)
@@ -39,6 +37,18 @@ const PatternGenerator: FC = () => {
       <div className="container mx-auto max-w-xl">
         <Card>
           <CardContent>
+            {/* Shape Collection */}
+            <Label htmlFor="collections">Shape Collection</Label>
+            <Select value={config.shapeCollection} onValueChange={(value) => updateConfig({ shapeCollection: value })}>
+              <SelectTrigger id="collections">
+                <SelectValue placeholder="Select shape collection" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="basic">Basic</SelectItem>
+                <SelectItem value="marathon">Marathon</SelectItem>
+              </SelectContent>
+            </Select>
+
             {/* Pattern Style */}
             <Label htmlFor="patternStyle">Pattern Style</Label>
             <Select

@@ -2,18 +2,14 @@ import type { ShapeDefinition } from '@/types/index'
 
 class ShapeRegistry {
   private shapes: Map<string, ShapeDefinition> = new Map()
-  private initialized: boolean = false
 
   register(shapes: ShapeDefinition[]) {
-    if (this.initialized) return
-
     for (const shape of shapes) {
       if (!this.shapes.has(shape.id)) {
+        console.log(`Registering shape: ${shape.id}`)
         this.shapes.set(shape.id, shape)
       }
     }
-
-    this.initialized = true
   }
 
   get(id: string): ShapeDefinition | undefined {
