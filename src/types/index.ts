@@ -6,7 +6,7 @@ export interface ShapeDefinition {
   tags?: string[]
 }
 
-export type ShapeCategory = 'basic'
+export type ShapeCategory = 'basic' | 'marathon' | 'custom'
 
 export interface ShapeCollection {
   id: string
