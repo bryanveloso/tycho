@@ -5,6 +5,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Slider } from './components/ui/slider'
 import { registerDefaultCollections } from '@/lib/collections/default'
 import { registerBasicShapes } from '@/lib/shapes/basic'
+import { registerMarathonShapes } from '@/lib/shapes/marathon'
 
 import './index.css'
 import { Input } from './components/ui/input'
@@ -19,6 +20,7 @@ export const App: FC = () => {
 
     // First register the shapes
     registerBasicShapes()
+    registerMarathonShapes()
 
     // Then register the collections
     registerDefaultCollections()
