@@ -1,4 +1,5 @@
 {
+  "plugins": ["prettier-plugin-embed"],
   "bracketSameLine": true,
   "printWidth": 120,
   "singleQuote": true,
