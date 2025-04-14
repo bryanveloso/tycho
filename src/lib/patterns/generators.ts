@@ -43,7 +43,7 @@ export function generateRandomPattern(
   hashValue: number,
   density: number
 ): { showElement: boolean; intensity: number } {
-  const noiseVal = seededRng(0, 1, hashValue, x * y)
+  const noiseVal = seededRng(0, 1, hashValue, (x + 1) * (y + 1))
   return {
     showElement: noiseVal < density,
     intensity: noiseVal
