@@ -9,6 +9,13 @@ const basic: ShapeCollection = {
   shapes: ['square', 'circle', 'triangle', 'diamond']
 }
 
+const marathon: ShapeCollection = {
+  id: 'marathon',
+  name: 'Marathon',
+  description: "Shapes inspired by Marathon's assets.",
+  shapes: ['singleDot', 'quadDots']
+}
+
 export function registerDefaultCollections() {
-  collectionRegistry.register([basic])
+  collectionRegistry.register([basic, marathon])
 }
