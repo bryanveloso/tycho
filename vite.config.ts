@@ -6,6 +6,7 @@ import react from '@vitejs/plugin-react'
 import tsconfigPaths from 'vite-tsconfig-paths'
 
 export default defineConfig({
+  base: '/tycho/',
   plugins: [cloudflare(), react(), tailwindcss(), tsconfigPaths()],
   resolve: {
     alias: {
@@ -13,8 +14,6 @@ export default defineConfig({
     }
   },
   build: {
-    outDir: 'dist',
-    minify: true,
-    sourcemap: true
+    outDir: 'dist'
   }
 })
