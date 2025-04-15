@@ -6,7 +6,7 @@
   "main": "src/index.tsx",
   "module": "src/index.tsx",
   "scripts": {
-    "dev": "bunx --bun vite",
+    "dev": "vite",
     "build": "bunx --bun vite build && mkdir -p dist/tycho && cp -r dist/{assets,index.html} dist/tycho/",
     "preview": "bunx --bun vite preview"
   },
