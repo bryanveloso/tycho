@@ -6,13 +6,7 @@ import react from '@vitejs/plugin-react'
 import tsconfigPaths from 'vite-tsconfig-paths'
 
 export default defineConfig({
-  plugins: [
-    cloudflare(),
-    react(),
-    tailwindcss(),
-    tsconfigPaths()
-  ],
-  base: '/tycho/', // Base path for subdirectory deployment
+  plugins: [cloudflare(), react(), tailwindcss(), tsconfigPaths()],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src')
