@@ -7,7 +7,7 @@ interface SVGPreviewProps {
   backgroundColor?: string
 }
 
-const SVGPreview: FC<SVGPreviewProps> = ({ svg, height = '480px', width = '100%', backgroundColor = '#000000' }) => {
+const SVGPreview: FC<SVGPreviewProps> = ({ svg, height = '480px', width = '720px', backgroundColor = '#000000' }) => {
   const [isFullscreen, setIsFullScreen] = useState(false)
 
   // Toggle fullscreen preview.
@@ -25,7 +25,7 @@ const SVGPreview: FC<SVGPreviewProps> = ({ svg, height = '480px', width = '100%'
         style={{
           height: isFullscreen ? '100vh' : height,
           width: isFullscreen ? '100vw' : width,
-          backgroundColor: backgroundColor,
+          // backgroundColor: backgroundColor,
           overflow: 'hidden',
           cursor: isFullscreen ? 'zoom-out' : 'zoom-in'
         }}

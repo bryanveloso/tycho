@@ -30,8 +30,9 @@ export const App: FC = () => {
   }, [])
 
   return (
-    <main className="flex flex-col min-h-full">
-      <div className="grid w-full h-full items-center justify-center grid-cols-1 grid-rows-[auto_110px] isolate">
+    <div className="flex flex-col min-h-full">
+      <div className="grid w-full h-full items-center justify-center grid-cols-1 grid-rows-[56px_auto] isolate">
+        <nav className="bg-lime-400 text-zinc-950 h-14">TYCHO</nav>
         {registrationsComplete ? <PatternGenerator /> : <div className="text-center py-8">Initializing...</div>}
 
         {/* <Card className="bg-card/50 backdrop-blur-sm border-muted">
@@ -46,7 +47,7 @@ export const App: FC = () => {
         </CardContent>
         </Card> */}
       </div>
-    </main>
+    </div>
   )
 }
 

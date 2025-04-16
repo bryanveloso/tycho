@@ -16,12 +16,12 @@ const PatternGenerator: FC = () => {
     shapeSize: 8,
     mainColor: '#0066ff',
     backgroundColor: '#000000',
-    rows: 40,
-    columns: 60,
+    rows: 48,
+    columns: 72,
     density: 0.5,
     noiseScale: 0.1,
     patternStyle: 'geo',
-    shapeCollection: 'basic'
+    shapeCollection: 'marathon'
   })
 
   const { svg, exportSVG } = usePatternGenerator(config)
@@ -31,43 +31,55 @@ const PatternGenerator: FC = () => {
   }
 
   return (
-    <div className="flex flex-col">
+    <main className="flex flex-col min-h-full">
+      <div className="h-14 fixed top-0 justify-end items-center grow">BUTTON</div>
       <SVGPreview svg={svg} />
 
       <div className="container mx-auto max-w-xl">
         <Card>
           <CardContent>
-            {/* Shape Collection */}
-            <Label htmlFor="collections">Shape Collection</Label>
-            <Select value={config.shapeCollection} onValueChange={(value) => updateConfig({ shapeCollection: value })}>
-              <SelectTrigger id="collections">
-                <SelectValue placeholder="Select shape collection" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="basic">Basic</SelectItem>
-                <SelectItem value="marathon">Marathon</SelectItem>
-              </SelectContent>
-            </Select>
+            <div className="grid grid-cols-3 gap-3">
+              {/* Seed Input */}
+              <div>
+                <Label htmlFor="seed">Seed</Label>
+                <Input id="seed" value={config.seed} onChange={(e) => updateConfig({ seed: e.target.value })} />
+              </div>
 
-            {/* Pattern Style */}
-            <Label htmlFor="patternStyle">Pattern Style</Label>
-            <Select
-              value={config.patternStyle}
-              onValueChange={(value) => updateConfig({ patternStyle: value as 'geo' | 'random' | 'grid' })}>
-              <SelectTrigger id="patternStyle">
-                <SelectValue placeholder="Select pattern style" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="geo">Geographic</SelectItem>
-                <SelectItem value="random">Random</SelectItem>
-                <SelectItem value="grid">Grid</SelectItem>
-              </SelectContent>
-            </Select>
+              {/* Shape Collection */}
+              <div>
+                <Label htmlFor="collections">Shape Collection</Label>
+                <Select
+                  value={config.shapeCollection}
+                  onValueChange={(value) => updateConfig({ shapeCollection: value })}>
+                  <SelectTrigger id="collections">
+                    <SelectValue placeholder="Select shape collection" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="basic">Basic</SelectItem>
+                    <SelectItem value="marathon">Marathon</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
 
-            {/* Seed Input */}
-            <Label htmlFor="seed">Seed</Label>
-            <Input id="seed" value={config.seed} onChange={(e) => updateConfig({ seed: e.target.value })} />
+              {/* Pattern Style */}
+              <div>
+                <Label htmlFor="patternStyle">Pattern Style</Label>
+                <Select
+                  value={config.patternStyle}
+                  onValueChange={(value) => updateConfig({ patternStyle: value as 'geo' | 'random' | 'grid' })}>
+                  <SelectTrigger id="patternStyle">
+                    <SelectValue placeholder="Select pattern style" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="geo">Geographic</SelectItem>
+                    <SelectItem value="random">Random</SelectItem>
+                    <SelectItem value="grid">Grid</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
 
+            {/* Shape Size Slider */}
             {/* Shape Density Slider */}
             <Label htmlFor="density">Density</Label>
             <Slider
@@ -81,7 +93,7 @@ const PatternGenerator: FC = () => {
           </CardContent>
         </Card>
       </div>
-    </div>
+    </main>
   )
 }
 
