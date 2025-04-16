@@ -78,10 +78,11 @@ export function usePatternGenerator(config: PatternConfig) {
 
   const generateSVG = (elements: PatternElement[], config: PatternConfig): string => {
     const { shapeSize, backgroundColor, columns, rows, mainColor } = config
+    const multiplier = 1.5
 
     // Calculate SVG dimensions
-    const svgWidth = columns * shapeSize * 1.5
-    const svgHeight = rows * shapeSize * 1.5
+    const svgWidth = columns * shapeSize * multiplier
+    const svgHeight = rows * shapeSize * multiplier
 
     // Start SVG content
     let svgContent = `<svg viewBox="0 0 ${svgWidth} ${svgHeight}" xmlns="http://www.w3.org/2000/svg">
@@ -89,8 +90,8 @@ export function usePatternGenerator(config: PatternConfig) {
 
     // Add each element to the SVG
     elements.forEach((element) => {
-      const x = element.x * shapeSize * 1.5 + shapeSize
-      const y = element.y * shapeSize * 1.5 + shapeSize
+      const x = element.x * shapeSize * multiplier + shapeSize
+      const y = element.y * shapeSize * multiplier + shapeSize
       const size = shapeSize
 
       // Adjust color opacity
